@@ -26,3 +26,31 @@ const decimalKey = document.querySelector("#decimal");
 decimalKey.addEventListener('click', () => {
     if(!display.value.includes('.')) display.value += '.';
 })
+
+
+// arithmetic functions
+function add(a, b) {return a + b;}
+function subtract(a, b) {return a - b;}
+function multiply(a, b) {return a * b;}
+function divide(a, b) {return (b !== 0) ? a / b : "AAAAAA!!!";}
+
+function operate(operator, a, b) {
+    switch(operator){
+        case '+':
+            return add(a, b);
+            break;
+        case '-':
+            return subtract(a, b);
+            break;
+        case '×':
+        case '*':
+            return multiply(a, b);
+            break;
+        case '÷':
+        case '/':
+            return divide(a, b);
+            break;
+        default:
+            return "unknown operator";
+    }
+}
