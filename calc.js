@@ -13,3 +13,16 @@ calculator.addEventListener("mousedown", (e) => {
         window.removeEventListener("mousemove", drag);
     }, {once: true});
 });
+
+const numKeys = document.querySelectorAll('.nums > button:not(#op-equals, #decimal)');
+const display = document.querySelector('.display');
+numKeys.forEach((numBtn) => {
+    numBtn.addEventListener('click', () => {
+        display.value += numBtn.textContent;
+    });
+})
+
+const decimalKey = document.querySelector("#decimal");
+decimalKey.addEventListener('click', () => {
+    if(!display.value.includes('.')) display.value += '.';
+})
