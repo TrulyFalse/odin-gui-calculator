@@ -20,6 +20,8 @@ body {
 }
 
 .container {
+    user-select: none;
+    cursor: default;
     position: absolute;
     top: 25vh;
     left: 40vw;
