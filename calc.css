@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+.container {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: hsl(155, 53%, 32%);
+    width: 205px;
+    padding: 1em;
+    text-align: center;
+}
+
+.display {
+    height: 50px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: blue;
+    color: white;
+}
+
+.keys {
+    display: flex;
+    gap: 0.5em;
+    justify-content: space-between;
+}
+
+.nums {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: flex-end;
+    width: 120px;
+    flex: none;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    border-radius: 5px;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(41, 38, 38);
+    color: white;
+}
+
+.util-keys {
+    display: flex;
+    margin: 0.2em 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.util-keys p {
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+.util-keys button{
+    height: 20px;
+}

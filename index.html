@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="./calc.css">
+</head>
+<body>
     <h1>Calculator</h1>
-
     <div class="container">
         <input type="text" class="display">
-        
+
+        <div class="util-keys">
+                <button id="clr">CLR</button>
+                <p>By Abrar</p>
+        </div>
+
         <div class="keys">
             <div class="nums">
                 <button id="num-9">9</button>
@@ -23,8 +30,9 @@
                 <button id="num-2">2</button>
                 <button id="num-1">1</button>
 
-                <button id="num-0">0</button>
                 <button id="decimal">.</button>
+                <button id="num-0">0</button>
+                <button id="op-equals">=</button>
             </div>
 
             <div class="operators">
@@ -32,13 +40,8 @@
                 <button id="op-subtract">-</button>
                 <button id="op-multiply">×</button>
                 <button id="op-divide">÷</button>
-
-                <button id="op-equals">=</button>
             </div>
         </div>
     </div>
-</head>
-<body>
-    
 </body>
 </html>
