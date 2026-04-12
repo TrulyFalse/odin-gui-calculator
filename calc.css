@@ -1,3 +1,12 @@
+/* @font-face {
+  font-family: 'seven-segment';
+  src: url('./Seven\ Segment.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+
+
 html {
     box-sizing: border-box;
     font-family:'Courier New', Courier, monospace;
@@ -7,15 +16,14 @@ html {
 }
 
 body {
-    display: flex;
     background-color: rgb(61, 36, 22);
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 .container {
+    position: absolute;
+    top: 25vh;
+    left: 40vw;
+
     border: 2px solid black;
     border-radius: 10px;
     background-color: hsl(155, 53%, 32%);
@@ -27,12 +35,19 @@ body {
 }
 
 .display {
-    box-shadow: inset 0 3px 2px 2px black;
+    font: 1.8em "Seven Segment", sans-serif;
+    text-shadow: 0 0 5px white;
+    padding: 0.5em;
+    text-align: right;
+    box-shadow: inset -1px 3px 2px 2px rgb(12, 57, 153);
     height: 50px;
     border-radius: 5px;
     width: 100%;
     background-color: rgb(0, 140, 255);
     color: white;
+}
+.glowbox {
+    box-shadow: 0 0 15px 2px rgb(84, 84, 245);
 }
 
 .keys {
