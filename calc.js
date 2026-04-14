@@ -184,3 +184,19 @@ delKey.addEventListener("click", () => {
         else display.value = display.value.slice(0,-1);
     }
 })
+
+// display light btn
+const lightKey = document.querySelector("#led");
+const glowboxDiv = document.querySelector('.glowbox');
+const buttons = document.querySelectorAll('button');
+lightKey.addEventListener("click", () => {
+    display.classList.toggle("turned-off");
+    glowboxDiv.classList.toggle("turned-off");
+    buttons.forEach((btn) => {
+        btn.classList.toggle('turned-off');
+    })
+})
+
+
+// keyboard support
+// we will dispatch the button click events upon the corresponding keyboard key's keydown and keyup

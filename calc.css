@@ -26,7 +26,9 @@ body {
     top: 25vh;
     left: 40vw;
 
-    border: 2px solid black;
+    border: 2px solid rgb(23, 47, 34);
+    border-top: 2px solid rgb(34, 59, 43);
+    border-bottom: 8px solid rgb(33, 33, 33);
     border-radius: 10px;
     background-color: hsl(155, 53%, 32%);
     width: 205px;
@@ -48,8 +50,19 @@ body {
     background-color: rgb(0, 140, 255);
     color: white;
 }
+.display.turned-off{
+    background-color: hsl(50, 25%, 37%);
+    color: black;
+    text-shadow: -2px 2px 1px rgba(0, 0, 0, 0.394);
+    box-shadow: inset -1px 3px 2px 2px rgb(53, 53, 53);
+    
+}
 .glowbox {
     box-shadow: 0 0 15px 2px rgb(84, 84, 245);
+}
+.glowbox.turned-off{
+    box-shadow: none;
+    
 }
 
 .keys {
@@ -75,18 +88,22 @@ body {
 button{
     box-shadow: 0 3px 2px 2px black;
     border-radius: 5px;
+    border-top: 3px solid rgb(38, 67, 94);
+    border-bottom: 4px solid rgb(20, 20, 20);
     flex: none;
     width: 40px;
     height: 40px;
     background-color: rgb(41, 38, 38);
     color: white;
 }
-button:active {
-    background-color: rgb(29, 25, 25);
-}
-button.active {
+button:active, button.active {
     background-color: rgb(29, 25, 25);
     border-style: inset;
+    
+}
+button.turned-off {
+    border-top: 3px solid rgb(50, 50, 50);
+    
 }
 
 
@@ -100,10 +117,15 @@ button.active {
     border-top-left-radius: 10px;
 }
 .util-keys p {
+    font-size: 0.4em;
     color: rgb(255, 255, 255);
-    margin: 0 0 0 auto;
+    margin: 0 2px 0 auto;
 }
 .util-keys button{
     color:rgb(235, 124, 21);
     height: 20px;
+}
+
+.util-keys #led {
+    color: rgb(0, 55, 255);
 }
