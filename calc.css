@@ -19,12 +19,20 @@ body {
     background-color: rgb(61, 36, 22);
 }
 
+h1 {
+    width: 100px;
+    color: white;
+    position: absolute;
+    top: 50px;
+    left: 280px;
+}
+
 .container {
     user-select: none;
     cursor: default;
     position: absolute;
-    top: 25vh;
-    left: 40vw;
+    top: 50px;
+    left: 50px;
 
     border: 2px solid rgb(23, 47, 34);
     border-top: 2px solid rgb(34, 59, 43);
