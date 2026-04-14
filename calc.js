@@ -9,7 +9,7 @@ const display = document.querySelector('.display');
 //global calculator object
 let calculator = {
     accumulator: 0,
-    operator: null,
+    operator: '+',
     b: 0,
     
     states:{
@@ -168,7 +168,7 @@ clearKey.addEventListener('click', () => {
     calculator.setState('START');
     calculator.accumulator = 0;
     calculator.b = 0;
-    calculator.operator = null;
+    calculator.operator = '+';
     display.value = calculator.accumulator;
 
     // removing op-key "pressed" effect css class
@@ -200,3 +200,35 @@ lightKey.addEventListener("click", () => {
 
 // keyboard support
 // we will dispatch the button click events upon the corresponding keyboard key's keydown and keyup
+window.addEventListener('keydown', (e) => {
+    const clickEvent = new Event('click');
+    let relevantKey;
+
+    // handle CLR, DEL, * (multiply), / (division), ENTER (=) separately
+    if(['Backspace', 'Delete'].includes(e.code)) {
+        relevantKey = delKey;
+    } else if(e.code === 'Escape') {
+        relevantKey = clearKey;
+    } else if(e.key === '*') {
+        relevantKey = document.querySelector('#op-multiply')
+    } else if(e.key === '/') {
+        relevantKey = document.querySelector('#op-divide');
+    } else if (['Enter', 'Space'].includes(e.code)) {
+        relevantKey = equalsKey
+    } else {
+        // handles all numkeys, decimal, =, +, -
+        for(let btn of [...buttons]){
+            if(btn.textContent === e.key){
+                relevantKey = btn;
+                break;
+            }
+        }
+    }
+    relevantKey.dispatchEvent(clickEvent);
+    relevantKey.classList.add('active');
+
+    window.addEventListener('keyup', () => {
+        if(!['+', '-', '×', '÷'].includes(relevantKey.textContent))
+            relevantKey.classList.remove('active');
+    }, {once: true});
+})
