@@ -81,7 +81,10 @@ numKeys.forEach((numBtn) => {
         } else if(["INPUT_A", "INPUT_B"].includes(calculator.getState())){
             if(numBtn.textContent === '.') {
                 if(!display.value.includes('.')) display.value += '.';
-            } else display.value += numBtn.textContent;
+            } else {
+                if(display.value === '0') display.value = numBtn.textContent;
+                else display.value += numBtn.textContent;
+            }
         } else if(calculator.getState() === "OPERATOR"){
             calculator.setState("INPUT_B");
             display.value = numBtn.textContent;
@@ -173,3 +176,11 @@ clearKey.addEventListener('click', () => {
         if(btn.classList.contains("active")) btn.classList.remove("active");
     });
 });
+
+const delKey = document.querySelector('#delete');
+delKey.addEventListener("click", () => {
+    if(["INPUT_A", "INPUT_B"].includes(calculator.getState())){
+        if(display.value.length === 1) display.value = 0;
+        else display.value = display.value.slice(0,-1);
+    }
+})

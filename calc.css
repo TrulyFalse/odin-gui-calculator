@@ -92,14 +92,18 @@ button.active {
 
 .util-keys {
     display: flex;
-    margin: 0.2em 0;
-    justify-content: space-between;
+    margin: 0.2em 0 0 0;
+    justify-content: left;
     align-items: center;
+}
+.util-keys #delete {
+    border-top-left-radius: 10px;
 }
 .util-keys p {
     color: rgb(255, 255, 255);
-    margin: 0;
+    margin: 0 0 0 auto;
 }
 .util-keys button{
+    color:rgb(235, 124, 21);
     height: 20px;
 }
