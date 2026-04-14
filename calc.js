@@ -214,6 +214,7 @@ window.addEventListener('keydown', (e) => {
     } else if(e.key === '/') {
         relevantKey = document.querySelector('#op-divide');
     } else if (['Enter', 'Space'].includes(e.code)) {
+        e.preventDefault();
         relevantKey = equalsKey
     } else {
         // handles all numkeys, decimal, =, +, -
