@@ -83,6 +83,11 @@ numKeys.forEach((numBtn) => {
         } else if(calculator.getState() === "OPERATOR"){
             calculator.setState("INPUT_B");
             display.value = numBtn.textContent;
+
+            // removing op-key "pressed" effect css class
+            opKeys.forEach((btn) => {
+                    if(btn.classList.contains("active")) btn.classList.remove("active");
+            });
         }
     });
 })
@@ -100,6 +105,13 @@ opKeys.forEach((opBtn) => {
             calculator.setState("OPERATOR");
             calculator.operator = opBtn.textContent;
             display.value = calculator.accumulator;
+
+            // removing op-key "pressed" effect css class
+            if(calculator.getState() === "OPERATOR"){
+                opKeys.forEach((btn) => {
+                    if(btn.classList.contains("active")) btn.classList.remove("active");
+                });
+            }
         } else if(["INPUT_A"].includes(calculator.getState())){
             calculator.setState("OPERATOR");
             calculator.accumulator = +display.value;
@@ -115,6 +127,7 @@ opKeys.forEach((opBtn) => {
             calculator.setState("OPERATOR");
             calculator.operator = opBtn.textContent;
         }
+        opBtn.classList.add("active");
     });
 });
 
@@ -132,6 +145,10 @@ equalsKey.addEventListener('click', () => {
         calculator.b = calculator.accumulator;
         calculator.operate();
         display.value = calculator.accumulator;
+        // removing op-key "pressed" effect css class
+        opKeys.forEach((btn) => {
+            if(btn.classList.contains("active")) btn.classList.remove("active");
+        });
     } else if(["INPUT_B"].includes(calculator.getState())){
         calculator.setState("RESULT");
         calculator.b = +display.value;
@@ -151,4 +168,9 @@ clearKey.addEventListener('click', () => {
     calculator.b = 0;
     calculator.operator = null;
     display.value = calculator.accumulator;
+
+    // removing op-key "pressed" effect css class
+    opKeys.forEach((btn) => {
+        if(btn.classList.contains("active")) btn.classList.remove("active");
+    });
 });

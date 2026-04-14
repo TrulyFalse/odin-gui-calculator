@@ -81,6 +81,14 @@ button{
     background-color: rgb(41, 38, 38);
     color: white;
 }
+button:active {
+    background-color: rgb(29, 25, 25);
+}
+button.active {
+    background-color: rgb(29, 25, 25);
+    border-style: inset;
+}
+
 
 .util-keys {
     display: flex;
