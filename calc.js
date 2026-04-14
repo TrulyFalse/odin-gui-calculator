@@ -72,14 +72,16 @@ containerDiv.addEventListener("mousedown", (e) => {
 });
 
 // adding event-handlers to num keys
-const numKeys = document.querySelectorAll('.nums > button:not(#op-equals, #decimal)');
+const numKeys = document.querySelectorAll('.nums > button:not(#op-equals)');
 numKeys.forEach((numBtn) => {
     numBtn.addEventListener('click', () => {
         if(["START", "RESULT"].includes(calculator.getState())){
             calculator.setState("INPUT_A");
             display.value = numBtn.textContent;
         } else if(["INPUT_A", "INPUT_B"].includes(calculator.getState())){
-            display.value += numBtn.textContent;
+            if(numBtn.textContent === '.') {
+                if(!display.value.includes('.')) display.value += '.';
+            } else display.value += numBtn.textContent;
         } else if(calculator.getState() === "OPERATOR"){
             calculator.setState("INPUT_B");
             display.value = numBtn.textContent;
@@ -92,10 +94,7 @@ numKeys.forEach((numBtn) => {
     });
 })
 
-const decimalKey = document.querySelector("#decimal");
-decimalKey.addEventListener('click', () => {
-    //not done yet
-})
+
 
 // adding event handlers to operation keys
 const opKeys = document.querySelectorAll('.operators > button');
