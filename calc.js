@@ -201,6 +201,9 @@ lightKey.addEventListener("click", () => {
 // keyboard support
 // we will dispatch the button click events upon the corresponding keyboard key's keydown and keyup
 window.addEventListener('keydown', (e) => {
+    if(document.activeElement instanceof HTMLElement)
+        document.activeElement.blur(); // ensures the previously focused mouse-clicked button, now unfocused, doesn't get reclicked due to enter and space button
+
     const clickEvent = new Event('click');
     let relevantKey;
 
