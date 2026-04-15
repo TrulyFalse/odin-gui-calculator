@@ -47,6 +47,7 @@ let calculator = {
             default:
                 this.accumulator = "unknown operator";
         }
+        this.accumulator = +this.accumulator.toFixed(4);
         this.showingResult = true;
         display.value = calculator.accumulator;
     },
