@@ -2,7 +2,7 @@
 function add(a, b) {return a + b;}
 function subtract(a, b) {return a - b;}
 function multiply(a, b) {return a * b;}
-function divide(a, b) {return (b !== 0) ? a / b : "I'm sorry Dave, I am afraid I can't do that.";}
+function divide(a, b) {return (b !== 0) ? a / b : ":(";}
 
 const display = document.querySelector('.display');
 
@@ -207,11 +207,13 @@ window.addEventListener('keydown', (e) => {
     const clickEvent = new Event('click');
     let relevantKey;
 
-    // handle CLR, DEL, * (multiply), / (division), ENTER (=) separately
+    // handle CLR, DEL, * (multiply), / (division), ENTER (=), l(LED) separately
     if(['Backspace', 'Delete'].includes(e.code)) {
         relevantKey = delKey;
     } else if(e.code === 'Escape') {
         relevantKey = clearKey;
+    } else if(e.key === 'l') {
+        relevantKey = lightKey;
     } else if(e.key === '*') {
         relevantKey = document.querySelector('#op-multiply')
     } else if(e.key === '/') {
